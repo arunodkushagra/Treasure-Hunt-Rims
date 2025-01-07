@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treasure Hunt</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Welcome to Treasure Hunt by Cultural Society RIMS</h1>
+
+  <!-- Team Selection -->
+  <div id="team-selection">
+    <h3>Select Your Team:</h3>
+    <div id="team-buttons">
+      <!-- Generate Team Buttons -->
+      <script>
+        for (let i = 1; i <= 16; i++) {
+          document.write(
+            `<button id="team-${i}" class="team-btn" onclick="selectTeam(${i})">Team ${i}</button>`
+          );
+        }
+      </script>
+    </div>
+  </div>
+
+  <!-- Selected Team -->
+  <h3 id="selected-team">Selected Team: None</h3>
+
+  <!-- Location Input -->
+  <div id="location-input-section">
+    <h3>Enter Current Location:</h3>
+    <input type="number" id="location-input" placeholder="Enter location number" />
+    <button onclick="getNextLocation()">Submit</button>
+  </div>
+
+  <!-- Next Location Display -->
+  <h3 id="next-location"></h3>
+
+  <!-- 5-Digit Verification Code Section -->
+  <div id="verification-section" style="display: none;">
+    <h3>Enter 5-Digit Code:</h3>
+    <input type="text" id="verification-code" placeholder="Enter code" maxlength="5" />
+    <button onclick="verifyCode()">Verify</button>
+  </div>
+
+  <!-- QR Code Section -->
+  <div id="qr-section" style="display: none;">
+    <h3>Scan this QR Code:</h3>
+    <div id="qrcode"></div>
+    <h3>Enter the code displayed in QR:</h3>
+    <input type="text" id="unique-code" placeholder="Enter QR Code" />
+    <button onclick="verifyQRCode()">Verify Code</button>
+  </div>
+
+  <!-- Final Location -->
+  <h3 id="final-reveal"></h3>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</body>
+</html>
